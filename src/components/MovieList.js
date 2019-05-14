@@ -6,7 +6,7 @@ function MovieList() {
   const { state } = useContext(Context);
 
   return (
-    <div>
+    <div className="media_list">
       {state.movies &&
         state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
     </div>

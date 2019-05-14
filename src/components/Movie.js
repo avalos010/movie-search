@@ -2,7 +2,7 @@ import React from "react";
 import StarRatings from "react-star-ratings";
 
 const Movie = ({ movie }) => (
-  <div className="result-container">
+  <div className="result_container">
     <h3>{movie.title}</h3>
     <div className="result-img">
       <img
@@ -11,11 +11,12 @@ const Movie = ({ movie }) => (
       />
     </div>
 
-    <span className="result-release-date">
+    <span className="result_release_date">
       release date: {movie.release_date}
     </span>
-    <div className="result-overview">
-      <p>{movie.overview}</p>
+
+    <div className="result_overview">
+      <p>{movie.overview ? movie.overview : "No Overview Available"}</p>
     </div>
     <StarRatings
       rating={movie.vote_average}

@@ -8,6 +8,7 @@ import TvList from "./TvList";
 import PersonList from "./PersonList";
 import "../css/App.css";
 import "../css/normalize.css";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   const [state, dispatch] = useReducer(Reducer, {
@@ -24,9 +25,13 @@ function App() {
     <>
       <Context.Provider value={{ state, dispatch }}>
         <SearchInput />
-        {/* <MovieList /> */}
-        {/* <TvList /> */}
-        <PersonList />
+        <div className="results_container">
+          <Switch>
+            <Route exact path="/movie" component={MovieList} />
+            <Route exact path="/tv" component={TvList} />
+            <Route exact path="/person" component={PersonList} />
+          </Switch>
+        </div>
       </Context.Provider>
     </>
   );

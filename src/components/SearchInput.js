@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Context from "../context/Context";
 import key from "../secret/secret";
+import { withRouter } from "react-router-dom";
 
-const SearchInput = () => {
+const SearchInput = props => {
   const { dispatch, state } = useContext(Context);
 
   const [query, setQuery] = useState("");
@@ -25,13 +26,20 @@ const SearchInput = () => {
       const json = await response.json();
       dispatch({ type: `${option}Results`, payload: json.results });
       setQuery("");
+      window.scrollTo(0, 900);
     } else {
       alert("Please Enter a query");
     }
   };
 
+  useEffect(() => {
+    props.history.push(`/${option}`);
+  }, [option, props.history]);
+
+  const header = props.location.pathname.slice(1);
   return (
     <form className="input_search">
+      <h2>{header} search</h2>
       <div className="input_search_container">
         <input value={query} type="text" onChange={handleQueryChange} />
         <select onChange={handleSelectChange}>
@@ -51,4 +59,4 @@ const SearchInput = () => {
   );
 };
 
-export default SearchInput;
+export default withRouter(SearchInput);

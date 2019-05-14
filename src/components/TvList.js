@@ -6,7 +6,9 @@ function TvList() {
   const { state } = useContext(Context);
 
   return (
-    <div>{state.tv && state.tv.map(tv => <TvShow key={tv.id} tv={tv} />)}</div>
+    <div className="media_list">
+      {state.tv && state.tv.map(tv => <TvShow key={tv.id} tv={tv} />)}
+    </div>
   );
 }
 export default TvList;

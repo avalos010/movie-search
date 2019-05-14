@@ -3,7 +3,7 @@ import StarRatings from "react-star-ratings";
 import KnownFor from "./KnownFor";
 
 const Movie = ({ p }) => (
-  <div className="result-container">
+  <div className="result_container">
     <h3>{p.name}</h3>
     <div className="result-img">
       <img
@@ -11,8 +11,8 @@ const Movie = ({ p }) => (
         alt={p.name}
       />
     </div>
-    <div className="actor-known-for">
-      <h3>Known For</h3>
+    <div className="actor_known_for">
+      <h3>Popular Movies Featured</h3>
       {p.known_for &&
         p.known_for.map((act, i) => {
           if (act.media_type === "movie") return <KnownFor key={i} act={act} />;
