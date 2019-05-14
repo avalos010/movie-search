@@ -45,7 +45,7 @@ const SearchInput = props => {
         <select onChange={handleSelectChange}>
           <option value="movie">Movies</option>
           <option value="tv">Tv Shows</option>
-          <option value="person">People</option>
+          {/* <option value="person">People</option> */}
         </select>
 
         <input
